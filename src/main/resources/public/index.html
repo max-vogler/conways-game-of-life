@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Game of Life</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="styles/theme.min.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+<div id="container" v-el:container></div>
+<div class="hud">
+    <div class="btn-toolbar controls">
+        <div class="btn-group">
+            <button class="btn btn-primary-outline" :class="{active:play}" @click="togglePlay()">
+                <i class="fa fa-fw" :class="[play ? 'fa-pause' : 'fa-play']"></i>
+            </button>
+        </div>
+        <div class="btn-group">
+            <button class="btn btn-default-outline" :class="{active:mode=='view'}" @click="mode = 'view'">
+                <i class="fa fa-arrows-alt"></i>
+            </button>
+            <button class="btn btn-default-outline" :class="{active:mode=='add'}" @click="mode = 'add'">
+                <i class="fa fa-plus"></i>
+            </button>
+            <button class="btn btn-default-outline" :class="{active:mode=='remove'}" @click="mode = 'remove'">
+                <i class="fa fa-minus"></i>
+            </button>
+        </div>
+
+        <div class="btn-group dropup">
+            <button type="button" class="btn btn-default-outline dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-th"></i>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="#" @click.prevent="send('clear')">Clear</a></li>
+                <li><a href="#" @click.prevent="send('randomize')">Randomize</a></li>
+            </ul>
+        </div>
+
+        <div class="btn-group dropup">
+            <button type="button" class="btn btn-default-outline dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-dashboard"></i>
+            </button>
+            <ul class="dropdown-menu">
+                <li class="active"><a href="#" @click.prevent="send('interval,1000')">1x / second</a></li>
+                <li><a href="#" @click.prevent="send('interval,500')">2x / second</a></li>
+                <li><a href="#" @click.prevent="send('interval,200')">5x / second</a></li>
+                <li><a href="#" @click.prevent="send('interval,100')">10x / second</a></li>
+                <li><a href="#" @click.prevent="send('interval,50')">20x / second</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/three.js/build/three.min.js"></script>
+<script src="bower_components/three.js/examples/js/Detector.js"></script>
+<script src="bower_components/three.js/examples/js/controls/OrbitControls.js"></script>
+<script src="bower_components/three.js/examples/js/controls/DeviceOrientationControls.js"></script>
+<script src="bower_components/three.js/examples/js/libs/stats.min.js"></script>
+
+<script src="bower_components/vue/dist/vue.js"></script>
+
+<script src="scripts/Loader.js"></script>
+<script src="scripts/Controls.js"></script>
+<script src="scripts/GameSocket.js"></script>
+<script src="scripts/Game.js"></script>
+</body>
+
+</html>

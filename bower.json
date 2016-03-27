@@ -1,0 +1,10 @@
+{
+  "name": "conway",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "font-awesome": "~4.5.0",
+    "three.js": "threejs#*",
+    "vue": "~1.0.15"
+  }
+}

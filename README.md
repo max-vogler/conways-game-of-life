@@ -10,19 +10,20 @@ The Java backend calculates the Game of Life cells using all available CPU cores
 The HTML5 frontend receives the current state using WebSockets and displays a 3D user interface using WebGL. The same WebSockets are used to transfer commands to the Server.
 
 
-## Build
+## Build or [Download](https://github.com/mr-max/conways-game-of-life/releases/download/v1.0/life-1.0.jar)
 ```
 bower install
 ./gradlew jar
+cd build/libs/
 ```
 
 ## Run
 ```
-java -jar build/libs/life-1.0.jar
+java -jar life-1.0.jar
 ```
 This starts the game with a 100x100 grid. Access it on `http://localhost:8080`
 
 To start the Game with a custom Grid size (e.g. 200x200) call:
 ```
-java -jar build/libs/life-1.0.jar 200
+java -jar life-1.0.jar 200
 ```
